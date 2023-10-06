@@ -4,7 +4,7 @@
 # **Aligning Text-to-Image Diffusion Models with Reward Backpropagation**
 ![AlignProp](assets/method.png)
 
-[![arXiv](https://img.shields.io/badge/cs.LG-arXiv:2310.03739-b31b1b.svg)](#)
+[![arXiv](https://img.shields.io/badge/cs.LG-arXiv:2310.03739-b31b1b.svg)](https://arxiv.org/abs/2310.03739)
 [![Website](https://img.shields.io/badge/🌎-Website-blue.svg)](http://align-prop.github.io)
 </div>
 
