@@ -4,11 +4,11 @@
 # **Aligning Text-to-Image Diffusion Models with Reward Backpropagation**
 ![AlignProp](assets/method.png)
 
-[![arXiv](https://img.shields.io/badge/cs.LG-arXiv:2303.16203-b31b1b.svg)](#)
+[![arXiv](https://img.shields.io/badge/cs.LG-arXiv:2310.03739-b31b1b.svg)](#)
 [![Website](https://img.shields.io/badge/🌎-Website-blue.svg)](http://align-prop.github.io)
 </div>
 
-This is the official implementation of our paper [Aligning Text-to-Image Diffusion Models with Reward Backpropagation](https://arxiv.org/abs/2303.16203) by Mihir Prabhudesai, Anirudh Goyal, Deepak Pathak, and Katerina Fragkiadaki.
+This is the official implementation of our paper [Aligning Text-to-Image Diffusion Models with Reward Backpropagation](https://arxiv.org/abs/2310.03739) by Mihir Prabhudesai, Anirudh Goyal, Deepak Pathak, and Katerina Fragkiadaki.
 <!-- DESCRIPTION -->
 ## Abstract
 Text-to-image diffusion models have recently emerged at the forefront of image generation, powered by very large-scale unsupervised or weakly supervised text-to-image training datasets.  Due to the weakly supervised   training,  controlling  their behavior in downstream tasks, such as maximizing human-perceived image quality,  image-text alignment, or ethical image generation, is difficult. Recent works finetune diffusion models to downstream reward functions using vanilla reinforcement learning, notorious for the high variance of the gradient estimators. In this paper, we propose AlignProp, a method that aligns diffusion models to downstream reward functions using end-to-end backpropagation of the reward gradient through the denoising process. While naive implementation of such backpropagation would require prohibitive memory resources for storing the partial derivatives of modern text-to-image models, AlignProp finetunes low-rank adapter weight modules and uses gradient checkpointing, to render its memory usage viable. We test AlignProp in finetuning diffusion models to various objectives, such as image-text semantic alignment, aesthetics, compressibility and controllability of the number of objects present, as well as their combinations.  We show AlignProp  achieves higher rewards in fewer training steps than alternatives, while being conceptually simpler, making it a straightforward choice for optimizing diffusion models for differentiable reward functions of interest.
