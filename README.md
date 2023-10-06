@@ -66,3 +66,14 @@ We would like to thank Kevin Black and team, for opensourcing their code.
 ## Citation
 
 If you find this work useful in your research, please cite:
+
+```bibtex
+@misc{prabhudesai2023aligning,
+      title={Aligning Text-to-Image Diffusion Models with Reward Backpropagation}, 
+      author={Mihir Prabhudesai and Anirudh Goyal and Deepak Pathak and Katerina Fragkiadaki},
+      year={2023},
+      eprint={2310.03739},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
