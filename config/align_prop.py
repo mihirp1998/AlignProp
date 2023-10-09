@@ -116,7 +116,6 @@ def aesthetic():
     config.max_vis_images = 4
     config.train.adam_weight_decay = 0.1
     
-    # A6000 -49G
     config.save_freq = 1
     config.num_epochs = 7
     config.num_checkpoint_limit = 14
@@ -124,7 +123,7 @@ def aesthetic():
     config.truncated_backprop_minmax = (0,50)
     config.trunc_backprop_timestep = 40
     config.truncated_backprop = True
-    config = set_config_batch(config,total_samples_per_epoch=8,total_batch_size= 8, per_gpu_capacity=2)
+    config = set_config_batch(config,total_samples_per_epoch=256,total_batch_size= 128, per_gpu_capacity=4)
     return config
 
 
