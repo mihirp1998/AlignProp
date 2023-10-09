@@ -285,7 +285,7 @@ def main(_):
                 config.pretrained.model, revision=config.pretrained.revision, subfolder="unet"
             )
             tmp_unet.load_attn_procs(input_dir)
-            if config.resume_from_2 != "same":
+            if config.resume_from_2 != "stablediffusion":
                 tmp_unet_2 = UNet2DConditionModel.from_pretrained(
                     config.pretrained.model, revision=config.pretrained.revision, subfolder="unet"
                 )
@@ -294,7 +294,7 @@ def main(_):
                 attn_state_dict_2 = AttnProcsLayers(tmp_unet_2.attn_processors).state_dict()
                 
             attn_state_dict = AttnProcsLayers(tmp_unet.attn_processors).state_dict()
-            if config.resume_from_2 == "same":
+            if config.resume_from_2 == "stablediffusion":
                 for attn_state_key, attn_state_val in attn_state_dict.items():
                     attn_state_dict[attn_state_key] = attn_state_val*config.mixing_coef_1
             else:
@@ -305,7 +305,7 @@ def main(_):
                     
             del tmp_unet                
             
-            if config.resume_from_2 != "same":
+            if config.resume_from_2 != "stablediffusion":
                 del tmp_unet_2
                 
         elif isinstance(models[0], AttnProcsLayers):
