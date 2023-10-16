@@ -59,7 +59,7 @@ Evaluates the model checkpoint, as per the `resume_from` variable in the config 
 accelerate launch main.py --config config/align_prop.py:evaluate
 ```
 #### with mixing.
-Update the `resume_from` and `resume_from_2` varaibles to mention the checkpoints to mix. Set `resume_from_2` to `stablediffusion` to interpolate between `resume_from` and Stable diffusion weights.  The coefficient of mixing is based on the variable `mixing_coef_1` which can be editted in the config file.
+Update the `resume_from` and `resume_from_2` varaibles to mention the checkpoints to mix. Set `resume_from_2` to `stablediffusion` to interpolate between `resume_from` and Stable diffusion weights.  The coefficient of mixing is based on the variable `mixing_coef_1` which can be edited in the config file.
 
 ```bash
 accelerate launch main.py --config config/align_prop.py:evaluate_soup
