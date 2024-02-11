@@ -17,11 +17,6 @@ Text-to-image diffusion models have recently emerged at the forefront of image g
 
 ## Code
 
-### Coming Soon
-- Model Checkpoint
-- Other Reward functions
-- Shift to Stable Diffusion 2.1
-
 ### Installation 
 Create a conda environment with the following command:
 ```bash
@@ -50,6 +45,7 @@ accelerate launch main.py --config config/align_prop.py:hps
 ```
 
 ### Evaluation
+Please find the checkpoint for Aesthetic reward function [here](https://drive.google.com/file/d/1r7291awe3z37drfKyxLyqcNq6dHl6Egf/view?usp=sharing) and Hps-v2 reward function [here](https://drive.google.com/file/d/1nvSxwxf-OnDrKq4ob-j5islfUSif8lQb/view?usp=sharing)
 
 Evaluates the model checkpoint, as per the `resume_from` variable in the config file.  Evaluation includes calculating the reward and storing/uploading the images to local/wandb.
 
