@@ -30,7 +30,7 @@ Please use accelerate==0.17.0, other library dependancies might be flexible.
 
 Accelerate will automatically handle multi-GPU setting. 
 The code can work on a single GPU, as we automatically handle gradient accumulation as per the available GPUs in the CUDA_VISIBLE_DEVICES environment variable.
-For our experiments, we used 4 A100s- 40GB RAM to run our code. If you are using a GPU with a smaller RAM, please edit the [per_gpu_capacity](https://github.com/mihirp1998/DiffAlign/blob/ac0ae6afddad15187bc65727cb151d43cc822ea7/config/align_prop.py#L161) variable accordingly 
+For our experiments, we used 4 A100s- 40GB RAM to run our code. If you are using a GPU with a smaller RAM, please edit the [per_gpu_capacity](https://github.com/mihirp1998/DiffAlign/blob/ac0ae6afddad15187bc65727cb151d43cc822ea7/config/align_prop.py#L161) variable accordingly. Further if u are bottlenecked by GPU memory, consider using AlignProp with K=1, this will significantly reduce the memroy usage. 
 
 #### Aesthetic Reward model.
 Currently we early stop the code to prevent overfitting, however feel free to play with the `num_epochs` variable as per your needs.
@@ -38,10 +38,25 @@ Currently we early stop the code to prevent overfitting, however feel free to pl
 ```bash
 accelerate launch main.py --config config/align_prop.py:aesthetic
 ```
+
+If you are memory bottlenecked use AlignProp K=1, feel free to vary `trunc_backprop_timestep` as per ur memory avaibility, use the following command. Lower values of `trunc_backprop_timestep` can help with focusing on more semantic details:
+
+
+```bash
+accelerate launch main.py --config config/align_prop.py:aesthetic_k1
+```
+
 #### HPSv2 Reward model.
 
 ```bash
 accelerate launch main.py --config config/align_prop.py:hps
+```
+
+If you are memory bottlenecked use AlignProp K=1, feel free to vary `trunc_backprop_timestep` as per ur memory avaibility, use the following command. Lower values of `trunc_backprop_timestep` can help with focusing on more semantic details:
+
+
+```bash
+accelerate launch main.py --config config/align_prop.py:hps_k1
 ```
 
 ### Evaluation & Checkpoints
