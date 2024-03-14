@@ -39,7 +39,7 @@ Currently we early stop the code to prevent overfitting, however feel free to pl
 accelerate launch main.py --config config/align_prop.py:aesthetic
 ```
 
-If you are memory bottlenecked use AlignProp K=1, feel free to vary `trunc_backprop_timestep` as per ur memory avaibility, use the following command. Lower values of `trunc_backprop_timestep` can help with focusing on more semantic details:
+If you are memory bottlenecked use AlignProp K=1, feel free to vary `trunc_backprop_timestep` as per ur memory avaibility, use the following command. Lower values of `trunc_backprop_timestep` (higher values of K) can help with focusing on more semantic details:
 
 
 ```bash
@@ -52,7 +52,7 @@ accelerate launch main.py --config config/align_prop.py:aesthetic_k1
 accelerate launch main.py --config config/align_prop.py:hps
 ```
 
-If you are memory bottlenecked use AlignProp K=1, feel free to vary `trunc_backprop_timestep` as per ur memory avaibility, use the following command. Lower values of `trunc_backprop_timestep` can help with focusing on more semantic details:
+If you are memory bottlenecked use AlignProp K=1, feel free to vary `trunc_backprop_timestep` as per ur memory avaibility, use the following command. Lower values of `trunc_backprop_timestep` (higher values of K) can help with focusing on more semantic details:
 
 
 ```bash
