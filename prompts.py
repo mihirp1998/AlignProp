@@ -12,7 +12,7 @@ ASSETS_PATH = resources.files("assets")
 def _load_lines(path):
     """
     Load lines from a file. First tries to load from `path` directly, and if that doesn't exist, searches the
-    `ddpo_pytorch/assets` directory for a file named `path`.
+    `assets` directory for a file named `path`.
     """
     if not os.path.exists(path):
         newpath = ASSETS_PATH.joinpath(path)
