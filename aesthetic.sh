@@ -6,6 +6,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 accelerate launch main.py \
     --backprop_strategy='gaussian' \
     --sample_num_steps=50 \
     --reward_fn='aesthetic' \
+    --prompt_fn='simple_animals' \
     --train_batch_size=8 \
     --tracker_project_name="stable_diffusion_training" \
     --log_with="wandb"

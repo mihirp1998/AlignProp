@@ -108,7 +108,6 @@ class AlignPropConfig:
     sample_eta: float = 1.0
     sample_guidance_scale: float = 5.0
     prompt_fn: str = 'simple_animals'
-    prompt_fn: str = 'hps_v2_all'
     backprop_strategy: str = 'gaussian'    # gaussian, uniform, fixed
     backprop_kwargs = {'gaussian': {'mean': 42, 'std': 5}, 'uniform': {'min': 30, 'max': 50}, 'fixed': {'value': 49}}
     
