@@ -109,7 +109,7 @@ class AlignPropConfig:
     sample_guidance_scale: float = 5.0
     prompt_fn: str = 'simple_animals'
     backprop_strategy: str = 'gaussian'    # gaussian, uniform, fixed
-    backprop_kwargs = {'gaussian': {'mean': 42, 'std': 5}, 'uniform': {'min': 30, 'max': 50}, 'fixed': {'value': 49}}
+    backprop_kwargs = {'gaussian': {'mean': 42, 'std': 5}, 'uniform': {'min': 0, 'max': 50}, 'fixed': {'value': 49}}
     
     train_batch_size: int = 1
     train_use_8bit_adam: bool = False
