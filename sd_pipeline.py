@@ -64,20 +64,12 @@ def pipeline_step_with_grad(
             Paper](https://huggingface.co/papers/2205.11487). Guidance scale is enabled by setting `guidance_scale >
             1`. Higher guidance scale encourages to generate images that are closely linked to the text `prompt`,
             usually at the expense of lower image quality.
-        truncated_backprop (`bool`, *optional*, defaults to True):
-            Truncated Backpropation to fixed timesteps, helps prevent collapse during diffusion reward training as shown in AlignProp (https://huggingface.co/papers/2310.03739).
-        truncated_backprop_rand (`bool`, *optional*, defaults to True):
-            Truncated Randomized Backpropation randomizes truncation to different diffusion timesteps, this helps prevent collapse during diffusion reward training as shown in AlignProp (https://huggingface.co/papers/2310.03739).
-            Enabling truncated_backprop_rand allows adapting earlier timesteps in diffusion while not resulting in a collapse.
         gradient_checkpoint (`bool`, *optional*, defaults to True):
             Adds gradient checkpointing to Unet forward pass. Reduces GPU memory consumption while slightly increasing the training time.
-        truncated_backprop_timestep (`int`, *optional*, defaults to 49):
-            Absolute timestep to which the gradients are being backpropagated. Higher number reduces the memory usage and reduces the chances of collapse.
-            While a lower value, allows more semantic changes in the diffusion generations, as the earlier diffusion timesteps are getting updated.
-            However it also increases the chances of collapse.
-        truncated_rand_backprop_minmax (`Tuple`, *optional*, defaults to (0,50)):
-            Range for randomized backprop. Here the value at 0 index indicates the earlier diffusion timestep to update (closer to noise), while the value
-            at index 1 indicates the later diffusion timestep to update.
+        backprop_strategy (`str`, *optional*, defaults to 'gaussian'):
+            Strategy for backpropagation. Options: 'gaussian', 'uniform', 'fixed'.
+        backprop_kwargs (`dict`, *optional*):
+            Additional keyword arguments for backpropagation.
         negative_prompt (`str` or `List[str]`, *optional*):
             The prompt or prompts not to guide the image generation. If not defined, one has to pass
             `negative_prompt_embeds` instead. Ignored when not using guidance (i.e., ignored if `guidance_scale` is
