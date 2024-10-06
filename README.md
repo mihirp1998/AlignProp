@@ -36,44 +36,26 @@ For our experiments, we used 4 A100s- 40GB RAM to run our code. If you are using
 Currently we early stop the code to prevent overfitting, however feel free to play with the `num_epochs` variable as per your needs.
 
 ```bash
-accelerate launch main.py --config config/align_prop.py:aesthetic
+bash aesthetic.sh
 ```
 
-If you are memory bottlenecked use AlignProp K=1, feel free to vary `trunc_backprop_timestep` as per ur memory avaibility, use the following command. Lower values of `trunc_backprop_timestep` (higher values of K) can help with focusing on more semantic details:
+If you are memory bottlenecked use AlignProp K=1. Lower values of `backprop_timestep` can help with focusing on more semantic details:
 
 
 ```bash
-accelerate launch main.py --config config/align_prop.py:aesthetic_k1
+bash aesthetic_k1.sh
 ```
 
 #### HPSv2 Reward model.
 
 ```bash
-accelerate launch main.py --config config/align_prop.py:hps
+bash hps.sh
 ```
 
-If you are memory bottlenecked use AlignProp K=1, feel free to vary `trunc_backprop_timestep` as per ur memory avaibility, use the following command. Lower values of `trunc_backprop_timestep` (higher values of K) can help with focusing on more semantic details:
-
-
-```bash
-accelerate launch main.py --config config/align_prop.py:hps_k1
-```
-
-### Evaluation & Checkpoints
-Please find the checkpoints for Aesthetic reward function [here](https://drive.google.com/file/d/1r7291awe3z37drfKyxLyqcNq6dHl6Egf/view?usp=sharing) and Hps-v2 reward function [here](https://drive.google.com/file/d/1nvSxwxf-OnDrKq4ob-j5islfUSif8lQb/view?usp=sharing)
-
-Evaluates the model checkpoint, as per the `resume_from` variable in the config file.  Evaluation includes calculating the reward and storing/uploading the images to local/wandb.
-
-#### normal evaluation.
+Similarly, for low GPU VRAM, K=1 can be used.
 
 ```bash
-accelerate launch main.py --config config/align_prop.py:evaluate
-```
-#### with mixing.
-Update the `resume_from` and `resume_from_2` varaibles to mention the checkpoints to mix. Set `resume_from_2` to `stablediffusion` to interpolate between `resume_from` and Stable diffusion weights.  The coefficient of mixing is based on the variable `mixing_coef_1` which can be edited in the config file.
-
-```bash
-accelerate launch main.py --config config/align_prop.py:evaluate_soup
+bash hps_k1.sh
 ```
 
 ### Acknowledgement
