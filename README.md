@@ -24,7 +24,7 @@ conda create -n alignprop python=3.10
 conda activate alignprop
 pip install -r requirements.txt
 ```
-Please use accelerate==0.17.0, other library dependancies might be flexible.
+
 
 ### Training Code
 
