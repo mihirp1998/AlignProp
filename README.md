@@ -39,7 +39,7 @@ Currently we early stop the code to prevent overfitting, however feel free to pl
 bash aesthetic.sh
 ```
 
-If you are memory bottlenecked use AlignProp K=1. Lower values of `backprop_timestep` can help with focusing on more semantic details:
+If you are memory bottlenecked use AlignProp K=1. Lower values of `backprop_timestep` (i.e higher values of K) can help with focusing on more semantic details:
 
 
 ```bash
